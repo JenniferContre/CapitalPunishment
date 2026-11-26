@@ -6,6 +6,7 @@ output: html_document
 ---
 
 ```{r include=FALSE,echo=FALSE}
+
 source(file="fisherXY.R")
 require(tidyverse)
 require(tigerstats)
@@ -15,6 +16,7 @@ GSS <-read.dta(file="GSS2016.dta")
 GSS <- droplevels(GSS)
 mydata <- select(GSS,race,cappun)
 mydata <- na.omit(mydata)
+
 ```
 
 # Introduction
@@ -48,6 +50,13 @@ Race is categorical.
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
+```{r}
+barchartGC(~cappun + race,data=GSS)
+barchartGC(~cappun + race,data=GSS, type="percent")
+
+```
+
+According to this bar chart, there was a higher percentage of white individuals that favored capitol punishment over those who opposed it. The bar chart also shows that a higher percentage of black and other individuals opposed capitol punishment over those who favored it. 
 
 
 ## Now with The Most data (fewer variables gives more data points)
@@ -57,8 +66,15 @@ Race is categorical.
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r}
+fisherXY(GSS$race,GSS$cappun)
+```
 
-
+```{r}
+table1 <- xtabs(~cappun + race, data=GSS)
+rowPerc(table1)
+colPerc(table1)
+```
 
 
 ## Now with More data
@@ -69,7 +85,11 @@ Race is categorical.
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-`
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
 
 ## More data version
@@ -78,3 +98,5 @@ Race is categorical.
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+
