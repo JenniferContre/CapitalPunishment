@@ -58,17 +58,11 @@ barchartGC(~cappun + race,data=GSS, type="percent")
 
 According to this bar chart, there was a higher percentage of white individuals that favored capitol punishment over those who opposed it. The bar chart also shows that a higher percentage of black and other individuals opposed capitol punishment over those who favored it. 
 
-
 ## Now with The Most data (fewer variables gives more data points)
-
-
 
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
-```{r}
-fisherXY(GSS$race,GSS$cappun)
-```
 
 ```{r}
 table1 <- xtabs(~cappun + race, data=GSS)
@@ -77,9 +71,9 @@ colPerc(table1)
 ```
 
 
+According to this table, there appears to be a higher percentage of white individuals that favor capitol punishment than those who oppose it. There also appears to be a lower percentage of black and other individuals that favor capitol punishment than those who oppose it. 
+
 ## Now with More data
-
-
 
 ## Inferential Results
 

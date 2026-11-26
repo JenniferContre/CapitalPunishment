@@ -391,7 +391,7 @@ their race.</p>
 <p>According to this bar chart, there was a higher percentage of white
 individuals that favored capitol punishment over those who opposed it.
 The bar chart also shows that a higher percentage of black and other
-individuals opposed capitol puniishment over those who favored it.</p>
+individuals opposed capitol punishment over those who favored it.</p>
 </div>
 </div>
 <div id="now-with-the-most-data-fewer-variables-gives-more-data-points" class="section level2">
@@ -399,72 +399,6 @@ individuals opposed capitol puniishment over those who favored it.</p>
 <div id="numerical-descriptive-results" class="section level3">
 <h3>Numerical Descriptive Results</h3>
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
-<pre class="r"><code>fisherXY(GSS$race,GSS$cappun)</code></pre>
-<pre><code>## 
-## contingency table:
-##        y
-## x       favor oppose
-##   white  1300    697
-##   black   191    257
-##   other   138    112
-## 
-## ***All 2X2 tests****
-## 
-## [1] &quot;white&quot; &quot;black&quot;
-## [1] &quot;favor&quot;  &quot;oppose&quot;
-##        y
-## x       favor oppose
-##   white  1300    697
-##   black   191    257
-## 
-##  Fisher&#39;s Exact Test for Count Data
-## 
-## data:  fTempTable
-## p-value &lt; 2.2e-16
-## alternative hypothesis: true odds ratio is not equal to 1
-## 95 percent confidence interval:
-##  2.026182 3.110228
-## sample estimates:
-## odds ratio 
-##   2.508637 
-## 
-## 
-## [1] &quot;white&quot; &quot;other&quot;
-## [1] &quot;favor&quot;  &quot;oppose&quot;
-##        y
-## x       favor oppose
-##   white  1300    697
-##   other   138    112
-## 
-##  Fisher&#39;s Exact Test for Count Data
-## 
-## data:  fTempTable
-## p-value = 0.002607
-## alternative hypothesis: true odds ratio is not equal to 1
-## 95 percent confidence interval:
-##  1.148878 1.990665
-## sample estimates:
-## odds ratio 
-##   1.513507 
-## 
-## 
-## [1] &quot;black&quot; &quot;other&quot;
-## [1] &quot;favor&quot;  &quot;oppose&quot;
-##        y
-## x       favor oppose
-##   black   191    257
-##   other   138    112
-## 
-##  Fisher&#39;s Exact Test for Count Data
-## 
-## data:  fTempTable
-## p-value = 0.001564
-## alternative hypothesis: true odds ratio is not equal to 1
-## 95 percent confidence interval:
-##  0.4362024 0.8338638
-## sample estimates:
-## odds ratio 
-##  0.6036291</code></pre>
 <pre class="r"><code>table1 &lt;- xtabs(~cappun + race, data=GSS)
 rowPerc(table1)</code></pre>
 <pre><code>##         race
@@ -477,6 +411,10 @@ rowPerc(table1)</code></pre>
 ##   favor   65.1  42.63  55.2
 ##   oppose  34.9  57.37  44.8
 ##   Total  100.0 100.00 100.0</code></pre>
+<p>According to this table, there appears to be a higher percentage of
+white individuals that favor capitol punishment than those who oppose
+it. There also appears to be a lower percentage of black and other
+individuals that favor capitol punishment than those who oppose it.</p>
 </div>
 </div>
 <div id="now-with-more-data" class="section level2">
