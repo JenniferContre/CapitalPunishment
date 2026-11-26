@@ -56,7 +56,7 @@ barchartGC(~cappun + race,data=GSS, type="percent")
 
 ```
 
-According to this bar chart, there was a higher percentage of white individuals that favored capitol punishment over those who opposed it. The bar chart also shows that a higher percentage of black and other individuals opposed capitol punishment over those who favored it. 
+According to this bar chart, there was a higher percentage of white individuals that favored capitol punishment over those who opposed it. The bar chart also shows that a higher percentage of black individuals opposed capitol punishment over those who favored it. As for the other category, the percentage of those who opposed and favored capitol punishment were closer in percentages.
 
 ## Now with The Most data (fewer variables gives more data points)
 
@@ -71,7 +71,7 @@ colPerc(table1)
 ```
 
 
-According to this table, there appears to be a higher percentage of white individuals that favor capitol punishment than those who oppose it. There also appears to be a lower percentage of black and other individuals that favor capitol punishment than those who oppose it. 
+According to this table, there appears to be a higher percentage of white individuals that favor capitol punishment than those who oppose it. There also appears to be a lower percentage of black and other individuals that favor capitol punishment than those who oppose it. 65.1% of white individuals favored capitol punishment and 34.9% of white individuals opposed it. 42.63% of black individuals favored capitol punishment and 57.37%  of black individuals opposed it. 55.2% of other individuals favored capitol punishment and 44.8% of other individuals opposed it. 
 
 ## Now with More data
 
@@ -85,9 +85,15 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
+The p-value is 0.00000000000000022 which is less than 0.05. This means we will reject the null hypothesis and that we conclude that there is a relationship between an individuals attitude towards capitol punishment and the race of the individual.
 
 ## More data version
 
+```{r}
+fisherXY(GSS$cappun,GSS$race,confL=0.05) 
+```
+
+The fisherXY test displays that all races have a difference in their attitude towards capitol punishment as each of the races displayed have a p-value that is less than 0.05. The p-value of white and black is 0.00000000000000022. The p-value of white and other is 0.002607. The p-value of black and other is 0.001564. As is shown, the p-values are less than 0.05 and therefore we can reject the null hypothesis. Each also have different odd ratios. 
 
 # Discussion and Conclusion
 
